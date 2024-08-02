@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "Send Email";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        .container {
+            max-width: 800px;
+            margin-top: 30px;
+        }
+
+        .form-control {
+            margin-bottom: 15px;
+        }
+
+        .header-title {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .form-check-label {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="Main" class="container">
+        <div id="Mainsecond">
+        <div class="text-center">
+            <h1 class="header-title">@ViewData["Title"]</h1>
+        </div>
+
+        <div>
+            <div class="mb-3">
+                <label for="from" class="form-label">From:</label>
+                <input type="email" id="from" name="From" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label for="to" class="form-label">To:</label>
+                <input type="email" id="to" name="To" class="form-control" />
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="subject" class="form-label">Subject:</label>
+                <input type="text" id="subject" name="Subject" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label for="body" class="form-label">Body:</label>
+                <textarea id="body" name="Body" class="form-control" rows="6"></textarea>
+            </div>
+
+            <div class="form-check mb-3">
+                <input id="useSsl" name="UseSsl" type="checkbox" class="form-check-input" />
+                <label for="useSsl" class="form-check-label">Use SSL/TLS</label>
+            </div>
+
+            <button class="btn btn-primary" onclick="SendMail()">Send Email</button>
+        </div>
+        </div>
+        <div id="process-result"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function SendMail() {
+            var from = $("#from").val();
+            var to = $("#to").val();
+            var subject = $("#subject").val();
+            var body = $("#body").val();
+            var useSsl = $("#useSsl").prop("checked");  // Use .prop() for checkboxes
+
+            var data = {
+                from: from,
+                to: to,
+                subject: subject,
+                body: body,
+                useSsl: useSsl
+            };
+
+            const resultDiv = document.getElementById('process-result');
+            const img = document.createElement('img');
+
+            $.ajax({
+                url: '/Home/SendEmail',
+                type: 'POST',
+                data: data,  // Convert data to JSON
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                success: function (res) {
+                    alert('success');
+                    if (res.success) {
+                        img.src = '/Image/Success.gif';
+                        img.alt = 'Process Successful';
+                    } else {
+                        img.src = '/Image/siamese.jpg';
+                        img.alt = 'Process Failed';
+                    }
+                    document.getElementById('Mainsecond').style.display = 'none';
+                    resultDiv.appendChild(img);
+                   
+                },
+                error: function (error) {
+                    alert('Error: ' + error.statusText);  // More descriptive error handling
+                }
+            });
+        }
+    </script>
+</body>
+</html>

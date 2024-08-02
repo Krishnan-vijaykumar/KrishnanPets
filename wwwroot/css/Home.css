@@ -1,0 +1,39 @@
+﻿/* home.css */
+
+body {
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+.container {
+    padding: 25px; /* Consistent padding */
+}
+
+.card {
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #dee2e6; /* Subtle border */
+}
+
+.parent-container {
+    background-color: #e9ecef; /* Light background color */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+}
+
+label {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 400; /* Normal weight */
+    font-size: 14px; /* Adjusted font size */
+    margin-bottom: 5px; /* Space below labels */
+}
+
+input[type="text"],
+input[type="password"] {
+    border-radius: 4px; /* Rounded input corners */
+}
+
+.btn {
+    border-radius: 4px; /* Rounded button corners */
+    padding: 10px; /* Button padding */
+}

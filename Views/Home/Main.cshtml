@@ -1,0 +1,177 @@
+﻿@{
+    ViewData["Title"] = "Krishnan Integrated Pets Farm";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="~/css/Home.css" />
+</head>
+<body>
+    @if (!string.IsNullOrEmpty(ViewBag.SessionKey))
+    {
+        <header class="bg-success text-white py-4">
+            <div class="container text-center">
+                <h1>@ViewData["Title"]</h1>
+                <p>Your trusted partner in pet care.</p>
+            </div>
+        </header>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Krishnan Pets Farm</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#pets"><i class="fas fa-paw"></i> Pets</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container my-5">
+            <section id="about">
+                <h2 class="mb-4"><i class="fas fa-paw"></i> About Us</h2>
+                <p>Welcome to Krishnan Integrated Pets Farm, where your pets' happiness is our priority. Our state-of-the-art facilities and dedicated team ensure top-quality care for all your furry friends.</p>
+            </section>
+
+            <section id="services">
+                <h2 class="mb-4"><i class="fas fa-concierge-bell"></i> Our Services</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-bed"></i> Pet Boarding</h5>
+                                <p class="card-text">Safe and comfortable boarding facilities for your pets while you're away.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-scissors"></i> Grooming Services</h5>
+                                <p class="card-text">Professional grooming to keep your pets looking and feeling their best.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-chalkboard-teacher"></i> Training Programs</h5>
+                                <p class="card-text">Comprehensive training programs for pets of all ages and skill levels.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-stethoscope"></i> Healthcare and Wellness</h5>
+                                <p class="card-text">Routine check-ups and emergency care to keep your pets healthy.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pets">
+                <h2 class="mb-4"><i class="fas fa-paw"></i> Pets Available</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <img src="~/Image/GoldRet.webp" class="card-img-top" alt="Golden Retriever Puppies">
+                            <div class="card-body">
+                                <h5 class="card-title">Golden Retriever Puppies</h5>
+                                <p class="card-text">Age: 8 weeks</p>
+                                <p class="card-text">Price: $800 each</p>
+                                <p class="card-text">Description: Friendly and playful puppies, great for families with children.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <img src="~/Image/siamese.jpg" class="card-img-top" alt="Siamese Cats">
+                            <div class="card-body">
+                                <h5 class="card-title">Siamese Cats</h5>
+                                <p class="card-text">Age: 1 year</p>
+                                <p class="card-text">Price: $600 each</p>
+                                <p class="card-text">Description: Elegant and affectionate cats, perfect for indoor living.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="mb-4"><i class="fas fa-search"></i> Pets Wanted</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Looking for Adoptable Cats</h5>
+                                <p class="card-text">We are looking to adopt a cat that is friendly and social. If you have a cat that needs a loving home, please contact us.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Seeking Small Breed Puppies</h5>
+                                <p class="card-text">Interested in adopting a small breed puppy. Preferably house-trained and good with children.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2 class="mb-4"><i class="fas fa-envelope"></i> Contact Us</h2>
+                <p>If you have any questions or would like to schedule a visit, please reach out to us through the following channels:</p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-envelope"></i> Email: <a href="@Url.Action("Mail", "Home")" onclick="return openMailWindow();">info@krishnanpetsfarm.com</a></li>
+                    <li><i class="fas fa-phone"></i> Phone: (123) 456-7890</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Address: 123 Pet Lane, Animal City, AC 45678</li>
+                </ul>
+            </section>
+        </div>
+
+        <footer class="bg-success text-white py-3">
+            <div class="container text-center">
+                &copy; 2024 Krishnan Integrated Pets Farm. All rights reserved.
+            </div>
+        </footer>
+
+        <!-- Bootstrap and jQuery scripts -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="~/js/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            function openMailWindow() {
+                window.open(
+                    '@Url.Action("Mail", "Home")',
+                    '_blank',
+                    'width=1600,height=700'
+                );
+                return false; // Prevent default link action
+            }
+        </script>
+    }
+    else
+    {
+        <div class="container text-center my-4">
+            <p>No session key found.</p>
+        </div>
+    }
+</body>
+</html>
+}

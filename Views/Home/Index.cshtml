@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/css/Home.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-md-6 col-lg-4">
+                <div class="card p-4 shadow-sm">
+                    <h4 class="card-title text-center mb-4">Login</h4>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" class="form-control" />
+                        </div>
+                        <button type="button" id="submit" class="btn btn-primary btn-block" onclick="OnSubmit()">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function OnSubmit() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if (!username.trim()) {
+                alert("Enter the username");
+                return;
+            }
+            if (!password.trim()) {
+                alert("Enter the password");
+                return;
+            }
+
+            var data = {
+                username: username,
+                password: password,
+                confirmPassword: "",
+                Flag: "SELECT"
+            };
+
+            $.ajax({
+                url: '/Home/CheckLogin',
+                type: 'POST',
+                data: data,
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                success: function (res) {
+                    if (res.success) {
+                        alert('Welcome! Successfully logged in.');
+                        window.location.href = res.redirectUrl;
+                    } else {
+                        alert('Error: ' + res.message);
+                    }
+                },
+                error: function (error) {
+                    alert('Failed: ' + error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
